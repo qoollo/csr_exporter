@@ -36,3 +36,7 @@ cmd = "cat /tmp/temp_test"
 ```bash
 go build
 ```
+If you need to build without external dynamic dependencies (before install musl https://www.musl-libc.org/download.html):
+```bash
+CC=/usr/local/musl/bin/musl-gcc go build --ldflags '-linkmode external -extldflags "-static"'
+```
