@@ -1,0 +1,12 @@
+update_period_sec = 5
+port = 8080
+
+[[metrics]]
+name = "system_cpu_temp"
+help = "CPU temperature"
+cmd = "cat /sys/class/thermal/thermal_zone0/temp | cut -c-2"
+
+[[metrics]]
+name = "system_cpu_temp2"
+help = "CPU temperature"
+cmd = "cat /tmp/temp_test"
