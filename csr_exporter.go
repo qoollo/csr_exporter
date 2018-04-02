@@ -124,7 +124,7 @@ func main() {
 
 	// The Handler function provides a default handler to expose metrics
 	// via an HTTP server. "/metrics" is the usual endpoint for that.
-	http.Handle("/metrics", prometheus.UninstrumentedHandler())
+	http.Handle("/", prometheus.UninstrumentedHandler())
 	log.Debug("Running on port: %d Update period secs: %d", config.Port, config.UpdatePeriodSec)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Port), nil))
 }
