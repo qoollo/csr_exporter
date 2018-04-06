@@ -8,6 +8,12 @@
   version = "v0.3.0"
 
 [[projects]]
+  name = "github.com/NYTimes/gziphandler"
+  packages = ["."]
+  revision = "2600fb119af974220d3916a5916d6e31176aac1b"
+  version = "v1.0.1"
+
+[[projects]]
   branch = "master"
   name = "github.com/beorn7/perks"
   packages = ["quantile"]
@@ -67,6 +73,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "41bce621b08813d29f78e4edf4d4b2e3e6632a4966618123b49efe7774ab01e2"
+  inputs-digest = "999dd8d8e832e70d9cdfa82a738f26bdb6f0ab1ea1d00c961574477703d8bc59"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -13,6 +13,7 @@ import (
 	"github.com/BurntSushi/toml"
 	"github.com/op/go-logging"
 	"github.com/prometheus/client_golang/prometheus"
+	"github.com/NYTimes/gziphandler"
 )
 
 var log = logging.MustGetLogger("example")
@@ -124,7 +125,9 @@ func main() {
 
 	// The Handler function provides a default handler to expose metrics
 	// via an HTTP server. "/metrics" is the usual endpoint for that.
-	http.Handle("/", prometheus.UninstrumentedHandler())
+
+	withGz := gziphandler.GzipHandler(prometheus.UninstrumentedHandler())
+	http.Handle("/", withGz)
 	log.Debug("Running on port: %d Update period secs: %d", config.Port, config.UpdatePeriodSec)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Port), nil))
 }
